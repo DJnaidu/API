@@ -1,0 +1,16 @@
+import requests
+# Set your API credentials and endpoint
+api_key = "your_api_key";
+password = "your_api_password";
+shop_name = "your_shop_name";
+api_version = "2023-01" # Use the appropriate API version
+# Endpoint URL for fetching
+products url = f"https://{api_key}:{password}@{shop_name}.myshopify.com/admin/api/{api_version}/products.json";
+# Send GET request
+response = requests.get(url)
+# Check if the request was successful
+if response.status_code == 200:
+  products = response.json()
+  print("Products Data:", products)
+else:
+  print("Failed to retrieve data:", response.status_code)
